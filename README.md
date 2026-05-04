@@ -61,7 +61,7 @@ All implementations derived from first principles:
 
 - GBM solution derived via Maclaurin series expansion of the 
   stochastic exponential — original derivation published on 
-  [Substack](https://substack.com/@ayomideakinola1?utm_source=share&utm_medium=android&r=5xlptl)
+  [Substack](https://open.substack.com/pub/ayomideakinola007/p/why-itos-correction-was-always-in?utm_source=share&utm_medium=android&r=5xlptl)
 - N(d2) interpretation: risk-neutral probability S_T > K
 - Ito drift correction -σ²/2 emerges from Jensen's inequality 
   E[exp(X)] > exp(E[X])
