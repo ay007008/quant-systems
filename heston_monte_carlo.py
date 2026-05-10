@@ -3,6 +3,35 @@ import random
 
 def heston_monte_carlo_call(S, K, T, r, v0, theta, k, xi, rho,
                              n_paths=100_000, n_steps=252, seed=42):
+
+ """
+    Price a European call under Heston stochastic volatility
+    via Euler-Maruyama Monte Carlo simulation.
+
+    Heston model:
+        dS = r*S*dt + sqrt(v)*S*dW1
+        dv = k*(theta - v)*dt + xi*sqrt(v)*dW2
+        dW1*dW2 = rho*dt
+
+    Parameters:
+        S      : current stock price
+        K      : strike price
+        T      : time to expiry in years
+        r      : risk-free rate
+        v0     : initial variance (not volatility)
+        theta  : long-run variance mean reversion target
+        k      : mean reversion speed
+        xi     : volatility of volatility
+        rho    : correlation between price and vol shocks
+        n_paths: number of Monte Carlo paths
+        n_steps: number of time steps per path
+        seed   : random seed for reproducibility
+
+    Returns:
+        (price, std_error, 95_percent_confidence_interval)
+
+    Verified: converges to BSM price when xi=0, rho=0.
+    """
     random.seed(seed)
     dt = T / n_steps
     payoffs = []
